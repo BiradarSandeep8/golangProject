@@ -14,7 +14,7 @@ steps:
     mkdir $(GOBIN)
     mkdir $(GOPATH)\\pkg
     mkdir $(modulePath)
-    move /Y $(System.DefaultWorkingDirectory)\\* $(modulePath)\\
+    xcopy /s /e /y $(System.DefaultWorkingDirectory)\\* $(modulePath)\\
     echo '##vso[task.prependpath]$(GOBIN)'
     echo '##vso[task.prependpath]$(GOROOT)\\bin'
   displayName: 'Set up the Go workspace'
@@ -24,4 +24,3 @@ steps:
     go get -v -t -d ./...
     go build -v .
   workingDirectory: $(modulePath)
-  displayName: 'Get dependencies, then build'
