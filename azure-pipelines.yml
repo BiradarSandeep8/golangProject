@@ -1,7 +1,7 @@
 trigger:
 - master
 
-pool: mypool
+pool: WindowVm
 
 variables:
   GOBIN:  '$(GOPATH)\\bin' # Go binaries path
